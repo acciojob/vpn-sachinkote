@@ -63,6 +63,11 @@ public class Country{
 	public void setServiceProvider(ServiceProvider serviceProvider) {
 		this.serviceProvider = serviceProvider;
 	}
-	
+	public CountryName getCountryName() {
+		return countryName;
+	}
+	public void setCountryName(CountryName countryName) {
+		this.countryName = countryName;
+	}
 	
 }
