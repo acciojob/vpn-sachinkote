@@ -63,20 +63,40 @@ public class AdminServiceImpl implements AdminService {
     public ServiceProvider addCountry(int serviceProviderId, String countryName) throws Exception{
     	ServiceProvider provider=serviceProviderRepository1.findById(serviceProviderId).get();
     	Country c=new Country();
-        CountryName list[]= CountryName.values();
-        for(CountryName name:list)
-        {
-        	if(name.equals(countryName))
-        	{
-        		c.setCountryName(name);
-        		
-        		c.setCode(name.toCode());
-        	}
-        }
-        User u=new User();
-        c.setUser(u);
-        List<Country> l=provider.getCountryList();
-        l.add(c);
+    	String name=countryName.toUpperCase();
+    	if(name.equals("IND")) {
+    		c.setCountryName(CountryName.IND);
+    		c.setCode(CountryName.IND.toCode());
+    	}
+    	else if(name.equals("AUS"))
+    	{
+    		c.setCountryName(CountryName.AUS);
+    		c.setCode(CountryName.AUS.toCode());
+    	}
+    	else if(name.equals("CHI"))
+    	{
+    		c.setCountryName(CountryName.CHI);
+    		c.setCode(CountryName.CHI.toCode());
+    	}
+    	else if(name.equals("JPN"))
+    	{
+    		c.setCountryName(CountryName.JPN);
+    		c.setCode(CountryName.JPN.toCode());
+    	}
+    	else if(name.equals("USA"))
+    	{
+    		c.setCountryName(CountryName.USA);
+    		c.setCode(CountryName.USA.toCode());
+    	}
+    	else
+    	{
+    		throw new Exception( "Country not found");
+    	}
+    	c.setUser(null);
+    	c.setServiceProvider(provider);
+    	List<Country> l=provider.getCountryList();
+    	l.add(c);
+    	provider.setCountryList(l);
         serviceProviderRepository1.save(provider);
        
     	
