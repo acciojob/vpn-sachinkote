@@ -14,7 +14,7 @@ import javax.persistence.Table;
 @Table(name="table")
 public class Country{
 	private int id;
-	@Enumerated(value=EnumType.STRING)
+	//@Enumerated(value=EnumType.STRING)
 	private CountryName countryName;
 	private String code;
 	@OneToOne(mappedBy="user" , cascade=CascadeType.ALL)
