@@ -42,24 +42,18 @@ public class Country{
 	public int getId() {
 		return id;
 	}
-	public CountryName getCountryName() {
-		return countryName;
-	}
+	
 	public String getCode() {
 		return code;
 	}
 	public User getUser() {
 		return user;
 	}
-	public ServiceProvider getServiceProvider() {
-		return serviceProvider;
-	}
+	
 	public void setId(int id) {
 		this.id = id;
 	}
-	public void setCountryName(CountryName countryName) {
-		this.countryName = countryName;
-	}
+	
 	public void setCode(String code) {
 		this.code = code;
 	}
