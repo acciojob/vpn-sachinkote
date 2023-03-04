@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User register(String username, String password, String countryName) throws Exception{
     	User user=new User();
-    	/*user.setUsername(username);
+    	user.setUsername(username);
     	user.setPassword(password);
     	Country c=new Country();
     	
@@ -74,14 +74,14 @@ public class UserServiceImpl implements UserService {
 		
 		//userRepository3.save(user);
 		c.setUser(user);
-		countryRepository3.save(c);*/
+		countryRepository3.save(c);
        return user;
     }
 
     @Override
     public User subscribe(Integer userId, Integer serviceProviderId) {
 		User user=userRepository3.findById(userId).get();
-		/*List<ServiceProvider>l1=user.getServiceProviderList();
+		List<ServiceProvider>l1=user.getServiceProviderList();
 		ServiceProvider sp=serviceProviderRepository3.findById(serviceProviderId).get();
 		List<User> l=sp.getUsers();
 	    	
@@ -91,7 +91,7 @@ public class UserServiceImpl implements UserService {
 		user.setServiceProviderList(l1);
 		
 		userRepository3.save(user);
-		serviceProviderRepository3.save(sp);*/
+		serviceProviderRepository3.save(sp);
 		return user;
     }
 }
