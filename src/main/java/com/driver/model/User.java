@@ -24,6 +24,16 @@ public class User {
 	private String originalIp;
 	private String maskedIp;
 	private Boolean connected;
+	private String originalCountry;
+	
+	public String getOriginalCountry() {
+		return originalCountry;
+	}
+
+	public void setOriginalCountry(String originalCountry) {
+		this.originalCountry = originalCountry;
+	}
+
 	@JoinColumn
 	@ManyToMany
 	private List<ServiceProvider> serviceProviderList;
@@ -32,6 +42,7 @@ public class User {
 	@JoinColumn
 	@OneToOne
 	private Country country;
+	
 	
 	public User(int id, String username, String password, String originalIp, String maskedIp, Boolean connected,
 			List<ServiceProvider> serviceProviderList, List<Connection> connectionList, Country country) {
