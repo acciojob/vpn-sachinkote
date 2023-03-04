@@ -24,7 +24,7 @@ public class ConnectionServiceImpl implements ConnectionService {
     	User user=userRepository2.findById(userId).get();
     	if(user.getConnected()==true)
     		throw new Exception("Already connected");
-    	else if(user.getCountry().getCountryName().equals(countryName))
+    /*	else if(user.getCountry().getCountryName().equals(countryName))
     		return user;
     	else
     	{
@@ -47,7 +47,7 @@ public class ConnectionServiceImpl implements ConnectionService {
     			throw new Exception("Unable to connect");
     		}
     		
-    	}
+    	}*/
     	
     	
 		return user;
@@ -68,13 +68,14 @@ public class ConnectionServiceImpl implements ConnectionService {
     public User communicate(int senderId, int receiverId) throws Exception {
     User sender= userRepository2.findById(senderId).get();
     User reciver=userRepository2.findById(receiverId).get();
-    if(sender.getCountry().getCountryName().equals(reciver.getCountry().getCountryName()))
+    /*if(sender.getCountry().getCountryName().equals(reciver.getCountry().getCountryName()))
     {
     	return sender;
     }
     	
     else 
     	throw new Exception("Cannot establish communication");
-
+*/ 
+return sender;
     }
 }
