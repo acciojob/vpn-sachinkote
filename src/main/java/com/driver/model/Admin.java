@@ -83,7 +83,7 @@ public class Admin {
 
 
 
-	public void setServiceProvider(List<ServiceProvider> serviceProviders) {
+	public void setServiceProviders(List<ServiceProvider> serviceProviders) {
 		this.serviceProviders = serviceProviders;
 	}
 	
