@@ -1,7 +1,7 @@
 package com.driver.model;
 
 import java.util.List;
-
+import com.driver.model.*;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
