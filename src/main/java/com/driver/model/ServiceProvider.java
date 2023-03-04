@@ -1,99 +1,76 @@
 package com.driver.model;
 
+import javax.persistence.*;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
 @Entity
-@Table(name="serviceproviders")
+@Table(name = "serviceProviders")
 public class ServiceProvider {
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private  int id;
-	private  String name;
-	@JoinColumn
-	@ManyToOne
-	private Admin admin;
-	
-	@ManyToMany( cascade=CascadeType.ALL)
-	private List<User> users;
-	@OneToMany( cascade=CascadeType.ALL)
-	private List<Connection> connectionList;
-	@OneToMany( cascade=CascadeType.ALL)
-	private List<Country> countryList;
-	
-	public ServiceProvider() {
-		super();
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    private String name;
+    @ManyToOne
+    @JoinColumn
+    private Admin admin;
 
-	public ServiceProvider(int id, String name, Admin admin, List<User> users, List<Connection> connectionList,
-			List<Country> countryList) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.admin = admin;
-		this.users = users;
-		this.connectionList = connectionList;
-		this.countryList = countryList;
-	}
+    @ManyToMany(mappedBy = "serviceProviderList",cascade = CascadeType.ALL)
+    private List<User> users;
+    @OneToMany(mappedBy = "serviceProvider", cascade = CascadeType.ALL)
+    private List<Country> countryList;
 
-	public int getId() {
-		return id;
-	}
+    @OneToMany(mappedBy = "serviceProvider",cascade = CascadeType.ALL)
+    private List<Connection> connectionList ;
 
-	public String getName() {
-		return name;
-	}
+    public ServiceProvider() {
+    }
 
-	public Admin getAdmin() {
-		return admin;
-	}
 
-	public List<User> getUsers() {
-		return users;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public List<Connection> getConnectionList() {
-		return connectionList;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public List<Country> getCountryList() {
-		return countryList;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public Admin getAdmin() {
+        return admin;
+    }
 
-	public void setAdmin(Admin admin) {
-		this.admin = admin;
-	}
+    public void setAdmin(Admin admin) {
+        this.admin = admin;
+    }
 
-	public void setUsers(List<User> users) {
-		this.users = users;
-	}
+    public List<User> getUsers() {
+        return users;
+    }
 
-	public void setConnectionList(List<Connection> connectionList) {
-		this.connectionList = connectionList;
-	}
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
 
-	public void setCountryList(List<Country> countryList) {
-		this.countryList = countryList;
-	}
-	
-	
+    public List<Country> getCountryList() {
+        return countryList;
+    }
 
+    public void setCountryList(List<Country> countryList) {
+        this.countryList = countryList;
+    }
+
+    public List<Connection> getConnectionList() {
+        return connectionList;
+    }
+
+    public void setConnectionList(List<Connection> connectionList) {
+        this.connectionList = connectionList;
+    }
 }
