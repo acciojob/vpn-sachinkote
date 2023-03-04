@@ -41,7 +41,7 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public Admin addServiceProvider(int adminId, String providerName) {
-    	Admin admin=adminRepository1.findById(adminId);
+    	Admin admin=adminRepository1.findById(adminId).get();
     	ServiceProvider provider=new ServiceProvider();
     	provider.setAdmin(admin);
     	provider.setName(providerName);
@@ -61,7 +61,7 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public ServiceProvider addCountry(int serviceProviderId, String countryName) throws Exception{
-    	ServiceProvider provider=serviceProviderRepository1.findById(serviceProviderId);
+    	ServiceProvider provider=serviceProviderRepository1.findById(serviceProviderId).get();
     	Country c=new Country();
         CountryName list[]= CountryName.values();
         for(CountryName name:list)
