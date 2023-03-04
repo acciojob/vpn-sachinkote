@@ -62,7 +62,7 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public ServiceProvider addCountry(int serviceProviderId, String countryName) throws Exception{
     	ServiceProvider provider=serviceProviderRepository1.findById(serviceProviderId).get();
-    	/*Country c=new Country();
+    	Country c=new Country();
     	String name=countryName.toUpperCase();
     	if(name.equals("IND")) {
     		c.setCountryName(CountryName.IND);
@@ -98,7 +98,7 @@ public class AdminServiceImpl implements AdminService {
     	l.add(c);
     	provider.setCountryList(l);
         serviceProviderRepository1.save(provider);
-       */
+       
     	
 		return provider;
     }
