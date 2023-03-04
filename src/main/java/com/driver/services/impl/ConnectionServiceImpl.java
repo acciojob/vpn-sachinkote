@@ -24,30 +24,7 @@ public class ConnectionServiceImpl implements ConnectionService {
     	User user=userRepository2.findById(userId).get();
     	if(user.getConnected()==true)
     		throw new Exception("Already connected");
-    /*	else if(user.getCountry().getCountryName().equals(countryName))
-    		return user;
-    	else
-    	{
-    		if(user.getServiceProviderList().size()!=0) {
-    			List<ServiceProvider> l=user.getServiceProviderList();
-    			for(ServiceProvider p:l)
-    			{
-    				if(p.getCountryList().size()!=0) {
-    					List<Country>list=p.getCountryList();
-    					for(Country c:list)
-    					{
-    						if(c.getCountryName().equals(countryName))
-    						{
-    							 user.setConnected(Boolean.TRUE);	
-    			    		     user.setMaskedIp(""+user.getCountry().getCountryName().toCode()+"."+p.getId()+"."+userId);
-    						}
-    					}
-    				}
-    			}
-    			throw new Exception("Unable to connect");
-    		}
-    		
-    	}*/
+   
     	
     	
 		return user;
@@ -68,14 +45,7 @@ public class ConnectionServiceImpl implements ConnectionService {
     public User communicate(int senderId, int receiverId) throws Exception {
     User sender= userRepository2.findById(senderId).get();
     User reciver=userRepository2.findById(receiverId).get();
-    /*if(sender.getCountry().getCountryName().equals(reciver.getCountry().getCountryName()))
-    {
-    	return sender;
-    }
-    	
-    else 
-    	throw new Exception("Cannot establish communication");
-*/ 
+   
 return sender;
     }
 }
