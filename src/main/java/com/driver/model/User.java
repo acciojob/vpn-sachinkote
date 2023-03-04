@@ -26,13 +26,7 @@ public class User {
 	private Boolean connected;
 	private String originalCountry;
 	
-	public String getOriginalCountry() {
-		return originalCountry;
-	}
-
-	public void setOriginalCountry(String originalCountry) {
-		this.originalCountry = originalCountry;
-	}
+	
 
 	@JoinColumn
 	@ManyToMany
@@ -134,7 +128,13 @@ public class User {
 		this.country = country;
 	}
 	
-	
+	public String getOriginalCountry() {
+		return originalCountry;
+	}
+
+	public void setOriginalCountry(String originalCountry) {
+		this.originalCountry = originalCountry;
+	}
 	
 
 }
