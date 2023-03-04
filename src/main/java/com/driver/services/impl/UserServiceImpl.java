@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService {
     	user.setConnectionList(l);
     	user.setCountry(null);
     	user.setMaskedIp(null);
-    	user.setOriginalIp(user.getCountry().getCountryName().toCode()+"."+user.getId());
+    	//user.setOriginalIp(user.getCountry().getCountryName().toCode()+"."+user.getId());
     	user.setUsername(username);
     	user.setPassword(password);
     	List<ServiceProvider> l2=null;
