@@ -52,7 +52,7 @@ public class AdminServiceImpl implements AdminService {
     	List<User>userList =new ArrayList<>(); 
     	provider.setUsers(userList);
     	
-    	List<ServiceProvider> l=admin.getServiceProvider();
+    	List<ServiceProvider> l=admin.getServiceProviders();
     	l.add(provider);
     	
     	adminRepository1.save(admin);
