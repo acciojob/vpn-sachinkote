@@ -1,7 +1,8 @@
 package com.driver.model;
 
+import java.util.ArrayList;
 import java.util.List;
-import com.driver.model.*;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,7 +20,7 @@ public class Admin {
 	private String username;
 	private String password;
 	@OneToMany(mappedBy="serviceprovider", cascade=CascadeType.ALL)
-	private List<ServiceProvider> serviceProvider;
+	private List<ServiceProvider> serviceProviders=new ArrayList<>();
 	
 	public Admin() {
 		super();
@@ -29,12 +30,12 @@ public class Admin {
 	
 
 
-	public Admin(int id, String username, String password, List<ServiceProvider> serviceProvider) {
+	public Admin(int id, String username, String password, List<ServiceProvider> serviceProviders) {
 		super();
 		this.id = id;
 		this.username = username;
 		this.password = password;
-		this.serviceProvider = serviceProvider;
+		this.serviceProviders = serviceProviders;
 	}
 
 
@@ -74,16 +75,16 @@ public class Admin {
 
 
 
-	public List<ServiceProvider> getServiceProvider() {
-		return serviceProvider;
+	public List<ServiceProvider> getServiceProviders() {
+		return serviceProviders;
 	}
 
 
 
 
 
-	public void setServiceProvider(List<ServiceProvider> serviceProvider) {
-		this.serviceProvider = serviceProvider;
+	public void setServiceProvider(List<ServiceProvider> serviceProviders) {
+		this.serviceProviders = serviceProviders;
 	}
 	
 	
