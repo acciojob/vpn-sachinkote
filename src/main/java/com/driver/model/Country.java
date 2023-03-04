@@ -4,20 +4,26 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 // Note: Do not write @Enumerated annotation above CountryName in this model.
 @Entity
-@Table(name="table")
+@Table(name="country")
 public class Country{
+	@Id
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private int id;
 	//@Enumerated(value=EnumType.STRING)
 	private CountryName countryName;
 	private String code;
-	@OneToOne(mappedBy="user" , cascade=CascadeType.ALL)
+	@OneToOne( cascade=CascadeType.ALL)
 	private User user;
 	@ManyToOne
 	@JoinColumn

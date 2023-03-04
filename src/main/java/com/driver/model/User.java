@@ -37,7 +37,7 @@ public class User {
 	@JoinColumn
 	@ManyToMany
 	private List<ServiceProvider> serviceProviderList;
-	@OneToMany(mappedBy="connection", cascade=CascadeType.ALL)
+	@OneToMany( cascade=CascadeType.ALL)
 	private List<Connection> connectionList;
 	@JoinColumn
 	@OneToOne

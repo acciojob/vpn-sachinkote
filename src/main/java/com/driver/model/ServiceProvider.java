@@ -14,7 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="serviceprovider")
+@Table(name="serviceproviders")
 public class ServiceProvider {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -24,11 +24,11 @@ public class ServiceProvider {
 	@ManyToOne
 	private Admin admin;
 	
-	@ManyToMany(mappedBy="user", cascade=CascadeType.ALL)
+	@ManyToMany( cascade=CascadeType.ALL)
 	private List<User> users;
-	@OneToMany(mappedBy="connection", cascade=CascadeType.ALL)
+	@OneToMany( cascade=CascadeType.ALL)
 	private List<Connection> connectionList;
-	@OneToMany(mappedBy="country", cascade=CascadeType.ALL)
+	@OneToMany( cascade=CascadeType.ALL)
 	private List<Country> countryList;
 	
 	public ServiceProvider() {

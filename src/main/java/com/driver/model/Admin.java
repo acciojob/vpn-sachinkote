@@ -19,7 +19,7 @@ public class Admin {
 	private int id;
 	private String username;
 	private String password;
-	@OneToMany(mappedBy="serviceprovider", cascade=CascadeType.ALL)
+	@OneToMany( cascade=CascadeType.ALL)
 	private List<ServiceProvider> serviceProviders=new ArrayList<>();
 	
 	public Admin() {
